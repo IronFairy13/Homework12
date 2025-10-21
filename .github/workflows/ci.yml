@@ -1,0 +1,32 @@
+name: C++ CI
+
+on:
+  push:
+    branches:
+      - master
+      - main
+      - develop
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+
+      - name: Build mapper and reducer
+        run: make all
+
+      - name: Run unit tests
+        run: make test
+
+      - name: Run pipeline on dataset
+        run: bash run_locally.sh
