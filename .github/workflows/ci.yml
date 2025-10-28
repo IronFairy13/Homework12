@@ -1,5 +1,8 @@
 name: C++ CI
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
@@ -59,7 +62,6 @@ jobs:
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          token: ${{ github.token }}
           files: artifacts/*.deb
