@@ -17,8 +17,7 @@ std::vector<std::string> sample_lines()
         "9518,\"SPACIOUS; LOVELY FURNISHED MANHATTAN BEDROOM\",31374,Shon,Manhattan,Inwood,40.86482,-73.92106,Private room,44,3,108,2019-06-15,1.11,3,311",
         "9657,Modern 1 BR / NYC / EAST VILLAGE,21904,Dana,Manhattan,East Village,40.7292,-73.98542,Entire home/apt,180,14,29,2019-04-19,0.24,1,67"};
 }
-} // namespace
-
+} 
 TEST(Mapper, ExtractsPriceFromSimpleLine)
 {
     double price = 0.0;
